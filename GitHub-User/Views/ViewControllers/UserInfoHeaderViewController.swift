@@ -24,21 +24,8 @@ class UserInfoHeaderViewController: UIViewController {
         return label
     }()
     
-    private let locationImageView: UIImageView = {
-        let imageView = UIImageView(image: .location)
-        imageView.tintColor = .secondaryLabel
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    private let locationLabel: SecondaryTitleLabel = {
+    private let companyLabel: SecondaryTitleLabel = {
         let label = SecondaryTitleLabel(fontSize: 18)
-        return label
-    }()
-    
-    private let bioLabel: BodyLabel = {
-        let label = BodyLabel()
-        label.numberOfLines = 3
         return label
     }()
     
@@ -72,9 +59,7 @@ class UserInfoHeaderViewController: UIViewController {
         view.addSubview(avatarImageView)
         view.addSubview(usernameLabel)
         view.addSubview(nameLabel)
-        view.addSubview(locationImageView)
-        view.addSubview(locationLabel)
-        view.addSubview(bioLabel)
+        view.addSubview(companyLabel)
     }
     
     private func setConstraints() {
@@ -93,20 +78,10 @@ class UserInfoHeaderViewController: UIViewController {
         nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         nameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        locationImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 12).isActive = true
-        locationImageView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor).isActive = true
-        locationImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        locationImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        locationLabel.centerYAnchor.constraint(equalTo: locationImageView.centerYAnchor).isActive = true
-        locationLabel.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 5).isActive = true
-        locationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        locationLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 12).isActive = true
-        bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor).isActive = true
-        bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        bioLabel.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        companyLabel.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor).isActive = true
+        companyLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 12).isActive = true
+        companyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        companyLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
     
     private func configureLayoutElements() {
@@ -118,9 +93,7 @@ class UserInfoHeaderViewController: UIViewController {
         
         usernameLabel.text = user.login
         nameLabel.text = user.name
-//        locationLabel.text = user.location ?? "No location"
-//        bioLabel.text = user.bio
-        
+        companyLabel.text = user.company ?? "Company not specified"
     }
     
 }

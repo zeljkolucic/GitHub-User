@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class UserDetailsViewController: UIViewController {
     
@@ -17,7 +18,7 @@ class UserDetailsViewController: UIViewController {
         return view
     }()
     
-    private let profileView: UIView = {
+    private let repoView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -65,13 +66,11 @@ class UserDetailsViewController: UIViewController {
     
     private func configureViewController() {
         view.backgroundColor = .systemBackground
-        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneButton))
-        navigationItem.rightBarButtonItem = doneBarButton
     }
     
     private func addSubviews() {
         view.addSubview(headerView)
-        view.addSubview(profileView)
+        view.addSubview(repoView)
         view.addSubview(followersView)
         view.addSubview(dateLabel)
     }
@@ -80,14 +79,14 @@ class UserDetailsViewController: UIViewController {
         headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 180).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         
-        profileView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
-        profileView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        profileView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        profileView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        repoView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
+        repoView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        repoView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        repoView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         
-        followersView.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: 20).isActive = true
+        followersView.topAnchor.constraint(equalTo: repoView.bottomAnchor, constant: 20).isActive = true
         followersView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         followersView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         followersView.heightAnchor.constraint(equalToConstant: 140).isActive = true
@@ -101,12 +100,6 @@ class UserDetailsViewController: UIViewController {
         containerView.addSubview(child.view)
         child.view.frame = containerView.bounds
         child.didMove(toParent: self)
-    }
-    
-    // MARK: Actions
-    
-    @objc private func didTapDoneButton() {
-        dismiss(animated: true)
     }
     
     // MARK: Network
@@ -123,12 +116,12 @@ class UserDetailsViewController: UIViewController {
                     let userInfoHeaderViewController = UserInfoHeaderViewController(user: user)
                     self.addChildViewController(child: userInfoHeaderViewController, to: self.headerView)
                     
-                    let profileItemInfoViewController = ProfileItemInfoViewController(user: user)
-//                    profileItemInfoViewController.delegate = self
-                    self.addChildViewController(child: profileItemInfoViewController, to: self.profileView)
+                    let repoItemInfoViewController = RepoItemInfoViewController(user: user)
+                    repoItemInfoViewController.delegate = self
+                    self.addChildViewController(child: repoItemInfoViewController, to: self.repoView)
                     
                     let followersItemInfoViewController = FollowersItemInfoViewController(user: user)
-//                    followersItemInfoViewController.delegate = self
+                    followersItemInfoViewController.delegate = self
                     self.addChildViewController(child: followersItemInfoViewController, to: self.followersView)
                     
                     let date = user.createdAt.convertToMonthYearFormat()
@@ -141,5 +134,32 @@ class UserDetailsViewController: UIViewController {
     }
     
 }
-    
 
+// MARK: - Repositories Delegate
+
+extension UserDetailsViewController: RepositoriesDelegate {
+    
+    func didTapRepositoriesButton() {
+        guard let user = user else { return }
+        let repositoriesViewController = RepositoriesViewController(username: user.login)
+        navigationController?.pushViewController(repositoriesViewController, animated: true)
+    }
+    
+}
+
+// MARK: - Followers Delegate
+    
+extension UserDetailsViewController: FollowersDelegate {
+    
+    func didTapGitHubProfile() {
+        guard let user = user, let url = URL(string: user.htmlUrl) else {
+            presentAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
+            return
+        }
+        
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.preferredControlTintColor = .systemGreen
+        present(safariViewController, animated: true)
+    }
+    
+}

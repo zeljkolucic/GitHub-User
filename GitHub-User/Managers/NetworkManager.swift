@@ -84,4 +84,80 @@ class NetworkManager {
         task.resume()
     }
     
+    func fetchRepositories(for user: String, completionHandler: @escaping (Result<[Repository], NetworkError>) -> Void) {
+        let endpoint = "\(baseURL)/users/\(user)/repos"
+        
+        guard let url = URL(string: endpoint) else {
+            completionHandler(.failure(.invalidUsername))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let _ = error {
+                completionHandler(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completionHandler(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let data = data else {
+                completionHandler(.failure(.invalidData) )
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                decoder.dateDecodingStrategy = .iso8601
+                let repositories = try decoder.decode([Repository].self, from: data)
+                completionHandler(.success(repositories))
+            } catch {
+                completionHandler(.failure(.invalidData))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func fetchCommits(for user: String, for repository: String, completionHandler: @escaping (Result<[Commit], NetworkError>) -> Void) {
+        let endpoint = "\(baseURL)/repos/\(user)/\(repository)/commits"
+        
+        guard let url = URL(string: endpoint) else {
+            completionHandler(.failure(.invalidUsername))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let _ = error {
+                completionHandler(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completionHandler(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let data = data else {
+                completionHandler(.failure(.invalidData) )
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                decoder.dateDecodingStrategy = .iso8601
+                let commits = try decoder.decode([Commit].self, from: data)
+                completionHandler(.success(commits))
+            } catch {
+                completionHandler(.failure(.invalidData))
+            }
+        }
+        
+        task.resume()
+    }
+    
 }

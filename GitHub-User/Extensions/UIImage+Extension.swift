@@ -18,6 +18,8 @@ extension UIImage {
     static let gists                = UIImage(systemName: "text.alignleft")
     static let followers            = UIImage(systemName: "heart")
     static let following            = UIImage(systemName: "person.2")
+    static let keyboard             = UIImage(systemName: "keyboard.fill")
+    static let circle               = UIImage(systemName: "circle.fill")
     
 }
 

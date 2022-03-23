@@ -8,9 +8,7 @@
 import UIKit
 
 protocol FollowersDelegate: AnyObject {
-    
-    func didTapGetFollowersButton()
-    
+    func didTapGitHubProfile()
 }
 
 class FollowersItemInfoViewController: ItemInfoViewController {
@@ -30,15 +28,15 @@ class FollowersItemInfoViewController: ItemInfoViewController {
     // MARK: - Configuration
     
     private func configure() {
-        itemInfoViewLeft.configure(with: .followers, count: 0)
-        itemInfoViewRight.configure(with: .following, count: 0)
-        button.configure(with: .systemGreen, title: "Get Followers")
+        itemInfoViewLeft.configure(with: .followers, count: user.followers)
+        itemInfoViewRight.configure(with: .following, count: user.following)
+        button.configure(with: .systemGreen, title: "GitHub Profile")
     }
     
     // MARK: - Actions
     
     override func didTapButton() {
-        delegate?.didTapGetFollowersButton()
+        delegate?.didTapGitHubProfile()
     }
     
 }

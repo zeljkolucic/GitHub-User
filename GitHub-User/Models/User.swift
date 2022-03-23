@@ -15,5 +15,10 @@ struct User: Codable, Hashable {
     let company: String?
     let reposUrl: String
     let createdAt: Date
+    let htmlUrl: String
+    let followers: Int
+    let following: Int
+    let publicRepos: Int
+    let publicGists: Int
     
 }

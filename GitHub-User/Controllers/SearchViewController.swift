@@ -24,9 +24,13 @@ class SearchViewController: UIViewController {
     }()
     
     private let searchButton: Button = {
-        let button = Button(backgroundColor: .systemGreen, title: "Get Followers")
+        let button = Button(backgroundColor: .systemGreen, title: "Search")
         return button
     }()
+    
+    private var isUsernameEntered: Bool {
+        return !usernameTextField.text!.isEmpty
+    }
     
     // MARK: - View Controller Lifecycle
     
@@ -38,6 +42,13 @@ class SearchViewController: UIViewController {
         setConstraints()
         
         configureTextField()
+        createDismissKeyboardTapGesture()
+        configureButtonAction()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        usernameTextField.text = ""
     }
     
     // MARK: - Layout
@@ -74,6 +85,29 @@ class SearchViewController: UIViewController {
     private func configureTextField() {
         usernameTextField.delegate = self
     }
+    
+    private func createDismissKeyboardTapGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    private func configureButtonAction() {
+        searchButton.addTarget(self, action: #selector(didTapSearchButton), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func didTapSearchButton() {
+        guard isUsernameEntered else {
+            presentAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for.", buttonTitle: "Ok")
+            return
+        }
+        
+        usernameTextField.resignFirstResponder()
+        
+        let userDetailsViewController = UserDetailsViewController(username: usernameTextField.text!)
+        navigationController?.pushViewController(userDetailsViewController, animated: true)
+    }
 
 }
 
@@ -81,8 +115,12 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.autocapitalizationType = .none
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+        didTapSearchButton()
         return true
     }
     

@@ -27,7 +27,7 @@
 		E4FF5BDC27EBB1830073C9CC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BDB27EBB1830073C9CC /* Date+Extension.swift */; };
 		E4FF5BDE27EBB1AD0073C9CC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BDD27EBB1AD0073C9CC /* UIViewController+Extension.swift */; };
 		E4FF5BE327EBB1EA0073C9CC /* FollowersItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BE027EBB1EA0073C9CC /* FollowersItemInfoViewController.swift */; };
-		E4FF5BE427EBB1EA0073C9CC /* ProfileItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BE127EBB1EA0073C9CC /* ProfileItemInfoViewController.swift */; };
+		E4FF5BE427EBB1EA0073C9CC /* RepoItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BE127EBB1EA0073C9CC /* RepoItemInfoViewController.swift */; };
 		E4FF5BE527EBB1EA0073C9CC /* UserInfoHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BE227EBB1EA0073C9CC /* UserInfoHeaderViewController.swift */; };
 		E4FF5BE727EBB2170073C9CC /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BE627EBB2170073C9CC /* ItemInfoViewController.swift */; };
 		E4FF5BE927EBB2860073C9CC /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BE827EBB2860073C9CC /* ItemInfoView.swift */; };
@@ -35,6 +35,13 @@
 		E4FF5BEE27EBB4630073C9CC /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BED27EBB4630073C9CC /* SecondaryTitleLabel.swift */; };
 		E4FF5BF027EBB4A70073C9CC /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BEF27EBB4A70073C9CC /* AlertViewController.swift */; };
 		E4FF5BF227EBB4C40073C9CC /* AlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BF127EBB4C40073C9CC /* AlertContainerView.swift */; };
+		E4FF5BF427EBBF050073C9CC /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BF327EBBF050073C9CC /* RepositoriesViewController.swift */; };
+		E4FF5BF727EBC0890073C9CC /* RepositoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BF627EBC0890073C9CC /* RepositoryDetailsViewController.swift */; };
+		E4FF5BF927EBC1180073C9CC /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BF827EBC1180073C9CC /* Repository.swift */; };
+		E4FF5BFB27EBC4A20073C9CC /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BFA27EBC4A20073C9CC /* Commit.swift */; };
+		E4FF5BFD27EBC5FC0073C9CC /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BFC27EBC5FC0073C9CC /* Author.swift */; };
+		E4FF5BFF27EBC65B0073C9CC /* CommitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BFE27EBC65B0073C9CC /* CommitDetails.swift */; };
+		E4FF5C0227EBCA460073C9CC /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5C0127EBCA460073C9CC /* RepositoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +67,7 @@
 		E4FF5BDB27EBB1830073C9CC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		E4FF5BDD27EBB1AD0073C9CC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		E4FF5BE027EBB1EA0073C9CC /* FollowersItemInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersItemInfoViewController.swift; sourceTree = "<group>"; };
-		E4FF5BE127EBB1EA0073C9CC /* ProfileItemInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileItemInfoViewController.swift; sourceTree = "<group>"; };
+		E4FF5BE127EBB1EA0073C9CC /* RepoItemInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoItemInfoViewController.swift; sourceTree = "<group>"; };
 		E4FF5BE227EBB1EA0073C9CC /* UserInfoHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderViewController.swift; sourceTree = "<group>"; };
 		E4FF5BE627EBB2170073C9CC /* ItemInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
 		E4FF5BE827EBB2860073C9CC /* ItemInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
@@ -68,6 +75,13 @@
 		E4FF5BED27EBB4630073C9CC /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		E4FF5BEF27EBB4A70073C9CC /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		E4FF5BF127EBB4C40073C9CC /* AlertContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertContainerView.swift; sourceTree = "<group>"; };
+		E4FF5BF327EBBF050073C9CC /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		E4FF5BF627EBC0890073C9CC /* RepositoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewController.swift; sourceTree = "<group>"; };
+		E4FF5BF827EBC1180073C9CC /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		E4FF5BFA27EBC4A20073C9CC /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
+		E4FF5BFC27EBC5FC0073C9CC /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		E4FF5BFE27EBC65B0073C9CC /* CommitDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitDetails.swift; sourceTree = "<group>"; };
+		E4FF5C0127EBCA460073C9CC /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +144,8 @@
 				E4FF5BC827EBA8560073C9CC /* DataLoadingViewController.swift */,
 				E4FF5BA427EBA2750073C9CC /* SearchViewController.swift */,
 				E4FF5BC027EBA47D0073C9CC /* UserDetailsViewController.swift */,
+				E4FF5BF327EBBF050073C9CC /* RepositoriesViewController.swift */,
+				E4FF5BF627EBC0890073C9CC /* RepositoryDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -137,6 +153,7 @@
 		E4FF5BB727EBA2A50073C9CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4FF5C0027EBCA2E0073C9CC /* TableViewCells */,
 				E4FF5BEA27EBB39E0073C9CC /* ImageViews */,
 				E4FF5BDF27EBB1E10073C9CC /* ViewControllers */,
 				E4FF5BCD27EBA8BB0073C9CC /* Labels */,
@@ -151,6 +168,10 @@
 			isa = PBXGroup;
 			children = (
 				E4FF5BD027EBAB400073C9CC /* User.swift */,
+				E4FF5BF827EBC1180073C9CC /* Repository.swift */,
+				E4FF5BFA27EBC4A20073C9CC /* Commit.swift */,
+				E4FF5BFC27EBC5FC0073C9CC /* Author.swift */,
+				E4FF5BFE27EBC65B0073C9CC /* CommitDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,7 +252,7 @@
 			children = (
 				E4FF5BE627EBB2170073C9CC /* ItemInfoViewController.swift */,
 				E4FF5BE027EBB1EA0073C9CC /* FollowersItemInfoViewController.swift */,
-				E4FF5BE127EBB1EA0073C9CC /* ProfileItemInfoViewController.swift */,
+				E4FF5BE127EBB1EA0073C9CC /* RepoItemInfoViewController.swift */,
 				E4FF5BE227EBB1EA0073C9CC /* UserInfoHeaderViewController.swift */,
 			);
 			path = ViewControllers;
@@ -243,6 +264,14 @@
 				E4FF5BEB27EBB3A90073C9CC /* AvatarImageView.swift */,
 			);
 			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		E4FF5C0027EBCA2E0073C9CC /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E4FF5C0127EBCA460073C9CC /* RepositoryTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,17 +344,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FF5BFB27EBC4A20073C9CC /* Commit.swift in Sources */,
 				E4FF5BE527EBB1EA0073C9CC /* UserInfoHeaderViewController.swift in Sources */,
 				E4FF5BC427EBA75F0073C9CC /* Button.swift in Sources */,
 				E4FF5BD627EBAF1A0073C9CC /* NetworkError.swift in Sources */,
 				E4FF5BA527EBA2750073C9CC /* SearchViewController.swift in Sources */,
+				E4FF5BF427EBBF050073C9CC /* RepositoriesViewController.swift in Sources */,
+				E4FF5C0227EBCA460073C9CC /* RepositoryTableViewCell.swift in Sources */,
 				E4FF5BCC27EBA8A50073C9CC /* EmptyStateView.swift in Sources */,
 				E4FF5BF227EBB4C40073C9CC /* AlertContainerView.swift in Sources */,
+				E4FF5BF927EBC1180073C9CC /* Repository.swift in Sources */,
 				E4FF5BDE27EBB1AD0073C9CC /* UIViewController+Extension.swift in Sources */,
 				E4FF5BEE27EBB4630073C9CC /* SecondaryTitleLabel.swift in Sources */,
 				E4FF5BD427EBAE620073C9CC /* NetworkManager.swift in Sources */,
 				E4FF5BDC27EBB1830073C9CC /* Date+Extension.swift in Sources */,
-				E4FF5BE427EBB1EA0073C9CC /* ProfileItemInfoViewController.swift in Sources */,
+				E4FF5BE427EBB1EA0073C9CC /* RepoItemInfoViewController.swift in Sources */,
 				E4FF5BA127EBA2750073C9CC /* AppDelegate.swift in Sources */,
 				E4FF5BCF27EBA8C50073C9CC /* TitleLabel.swift in Sources */,
 				E4FF5BC727EBA7A00073C9CC /* TextField.swift in Sources */,
@@ -335,12 +368,15 @@
 				E4FF5BE927EBB2860073C9CC /* ItemInfoView.swift in Sources */,
 				E4FF5BD127EBAB400073C9CC /* User.swift in Sources */,
 				E4FF5BEC27EBB3A90073C9CC /* AvatarImageView.swift in Sources */,
+				E4FF5BF727EBC0890073C9CC /* RepositoryDetailsViewController.swift in Sources */,
 				E4FF5BE727EBB2170073C9CC /* ItemInfoViewController.swift in Sources */,
 				E4FF5BBF27EBA4370073C9CC /* UIImage+Extension.swift in Sources */,
 				E4FF5BD827EBB0B80073C9CC /* BodyLabel.swift in Sources */,
 				E4FF5BA327EBA2750073C9CC /* SceneDelegate.swift in Sources */,
 				E4FF5BF027EBB4A70073C9CC /* AlertViewController.swift in Sources */,
+				E4FF5BFF27EBC65B0073C9CC /* CommitDetails.swift in Sources */,
 				E4FF5BBD27EBA4280073C9CC /* UIColor+Extension.swift in Sources */,
+				E4FF5BFD27EBC5FC0073C9CC /* Author.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

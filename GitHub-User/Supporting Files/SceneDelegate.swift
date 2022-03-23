@@ -17,12 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let viewController = SearchViewController()
+        configureNavigationBar()
+        
+        let searchViewController = SearchViewController()
+        let navigationViewController = UINavigationController(rootViewController: searchViewController)
         
         window = UIWindow(frame: windowScene.screen.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = viewController
+        window?.rootViewController = navigationViewController
         window?.makeKeyAndVisible()
+    }
+    
+    fileprivate func configureNavigationBar() {
+        UINavigationBar.appearance().tintColor = .systemGreen
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
