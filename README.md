@@ -12,7 +12,8 @@ handled properly and the custom alert is being shown.
 <img src="Screenshots/SearchScreen.png" alt="drawing" width="250" height="541"/>
 
 Having fetched the data from GitHub API, it is being decoded using JSONDecoder and the decoded data is being shown in separated child view controllers
-(each of sections is a separate child view controller).
+(each of sections is a separate child view controller). Avatar user image is being cached so that only the first time the image is actually fetched from
+the HTTP request, and every other time is fetched from the cache, which optimizes the application performance.
 
 <img src="Screenshots/UserScreen.png" alt="drawing" width="250" height="541"/>
 
