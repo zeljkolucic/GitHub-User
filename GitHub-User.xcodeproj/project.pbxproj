@@ -12,7 +12,6 @@
 		E4FF5BA527EBA2750073C9CC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BA427EBA2750073C9CC /* SearchViewController.swift */; };
 		E4FF5BAA27EBA2750073C9CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FF5BA927EBA2750073C9CC /* Assets.xcassets */; };
 		E4FF5BAD27EBA2750073C9CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FF5BAB27EBA2750073C9CC /* LaunchScreen.storyboard */; };
-		E4FF5BBD27EBA4280073C9CC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BBC27EBA4280073C9CC /* UIColor+Extension.swift */; };
 		E4FF5BBF27EBA4370073C9CC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BBE27EBA4370073C9CC /* UIImage+Extension.swift */; };
 		E4FF5BC127EBA47D0073C9CC /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BC027EBA47D0073C9CC /* UserDetailsViewController.swift */; };
 		E4FF5BC427EBA75F0073C9CC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BC327EBA75F0073C9CC /* Button.swift */; };
@@ -55,7 +54,6 @@
 		E4FF5BA927EBA2750073C9CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4FF5BAC27EBA2750073C9CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4FF5BAE27EBA2750073C9CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4FF5BBC27EBA4280073C9CC /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E4FF5BBE27EBA4370073C9CC /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		E4FF5BC027EBA47D0073C9CC /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		E4FF5BC327EBA75F0073C9CC /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 		E4FF5BB927EBA2B70073C9CC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E4FF5BBC27EBA4280073C9CC /* UIColor+Extension.swift */,
 				E4FF5BBE27EBA4370073C9CC /* UIImage+Extension.swift */,
 				E4FF5BDB27EBB1830073C9CC /* Date+Extension.swift */,
 				E4FF5BDD27EBB1AD0073C9CC /* UIViewController+Extension.swift */,
@@ -387,7 +384,6 @@
 				E4FF5BA327EBA2750073C9CC /* SceneDelegate.swift in Sources */,
 				E4FF5BF027EBB4A70073C9CC /* AlertViewController.swift in Sources */,
 				E4FF5BFF27EBC65B0073C9CC /* CommitDetails.swift in Sources */,
-				E4FF5BBD27EBA4280073C9CC /* UIColor+Extension.swift in Sources */,
 				E4FF5BFD27EBC5FC0073C9CC /* Author.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

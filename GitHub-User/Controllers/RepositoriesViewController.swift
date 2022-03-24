@@ -101,6 +101,12 @@ class RepositoriesViewController: DataLoadingViewController {
             case .success(let repositories):
                 self.repositories = repositories
                 
+                if self.repositories.isEmpty {
+                    DispatchQueue.main.async {
+                        self.showEmptyStateView(with: .noRepos, view: self.view)
+                    }
+                }
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

@@ -21,5 +21,7 @@ extension String {
     static let ok = "Ok"
     static let invalidUrl = "Invalid URL"
     static let invalidUrlMessage = "The url attached to this user is invalid."
+    static let noRepos = "This user has no repositories."
+    static let noCommits = "This repository has no commits."
     
 }

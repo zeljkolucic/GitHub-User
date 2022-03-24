@@ -9,6 +9,8 @@ import UIKit
 
 class RepositoryDetailsViewController: DataLoadingViewController {
     
+    // MARK: - Properties
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(CommitTableViewCell.self, forCellReuseIdentifier: CommitTableViewCell.reuseIdentifier)
@@ -16,8 +18,6 @@ class RepositoryDetailsViewController: DataLoadingViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    
-    // MARK: - Properties
     
     private let user: User
     private let repository: String
@@ -100,6 +100,12 @@ class RepositoryDetailsViewController: DataLoadingViewController {
             case .success(let commits):
                 self.commits = commits
                 
+                if self.commits.isEmpty {
+                    DispatchQueue.main.async {
+                        self.showEmptyStateView(with: .noCommits, view: self.view)
+                    }
+                }
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -132,6 +138,7 @@ extension RepositoryDetailsViewController: UITableViewDelegate, UITableViewDataS
         let daysSinceNow = calendar.daysSinceNow(date: date)
         cell.authorLabel.text = "\(username) commited \(daysSinceNow) days ago"
         
+        /// This has to fetch user first, because the owner of the repo does not have to be the same as the author of the commit
         NetworkManager.shared.getUserDetails(for: username) { result in
             switch result {
             case .success(let author):
@@ -148,7 +155,6 @@ extension RepositoryDetailsViewController: UITableViewDelegate, UITableViewDataS
         cell.selectionStyle = .none
         return cell
     }
-    
     
 }
 
