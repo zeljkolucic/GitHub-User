@@ -8,7 +8,7 @@
 import UIKit
 import SafariServices
 
-class UserDetailsViewController: UIViewController {
+class UserDetailsViewController: DataLoadingViewController {
     
     // MARK: - Properties
     
@@ -105,8 +105,10 @@ class UserDetailsViewController: UIViewController {
     // MARK: Network
     
     private func getUser() {
+        presentLoadingView()
         NetworkManager.shared.getUserDetails(for: username) { [weak self] result in
             guard let self = self else { return }
+            self.dismissLoadingView()
             
             switch result {
             case .success(let user):
@@ -128,7 +130,7 @@ class UserDetailsViewController: UIViewController {
                     self.dateLabel.text = "On GitHub since \(date)"
                 }
             case .failure(let error):
-                self.presentAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "Ok")
+                self.presentAlertOnMainThread(title: .error, message: error.rawValue, buttonTitle: .ok, delegate: self)
             }
         }
     }
@@ -141,7 +143,7 @@ extension UserDetailsViewController: RepositoriesDelegate {
     
     func didTapRepositoriesButton() {
         guard let user = user else { return }
-        let repositoriesViewController = RepositoriesViewController(username: user.login)
+        let repositoriesViewController = RepositoriesViewController(user: user)
         navigationController?.pushViewController(repositoriesViewController, animated: true)
     }
     
@@ -153,13 +155,21 @@ extension UserDetailsViewController: FollowersDelegate {
     
     func didTapGitHubProfile() {
         guard let user = user, let url = URL(string: user.htmlUrl) else {
-            presentAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
+            presentAlertOnMainThread(title: .invalidUrl, message: .invalidUrlMessage, buttonTitle: .ok)
             return
         }
         
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.preferredControlTintColor = .systemGreen
         present(safariViewController, animated: true)
+    }
+    
+}
+
+extension UserDetailsViewController: AlertDelegate {
+    
+    func dismiss() {
+        navigationController?.popViewController(animated: true)
     }
     
 }

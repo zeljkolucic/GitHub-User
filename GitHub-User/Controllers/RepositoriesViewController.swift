@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RepositoriesViewController: UIViewController {
+class RepositoriesViewController: DataLoadingViewController {
     
     // MARK: - Properties
     
@@ -21,12 +21,12 @@ class RepositoriesViewController: UIViewController {
     
     private var repositories = [Repository]()
     
-    private let username: String
+    private let user: User
     
     // MARK: - Initialization
     
-    init(username: String) {
-        self.username = username
+    init(user: User) {
+        self.user = user
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -68,7 +68,7 @@ class RepositoriesViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        navigationItem.title = "Repositories"
+        navigationItem.title = .repositories
     }
     
     private func addSubviews() {
@@ -92,8 +92,11 @@ class RepositoriesViewController: UIViewController {
     // MARK: - Network
     
     private func fetchRepositories() {
-        NetworkManager.shared.fetchRepositories(for: username) { [weak self] result in
+        presentLoadingView()
+        NetworkManager.shared.fetchRepositories(for: user.login) { [weak self] result in
             guard let self = self else { return }
+            self.dismissLoadingView()
+            
             switch result {
             case .success(let repositories):
                 self.repositories = repositories
@@ -102,7 +105,7 @@ class RepositoriesViewController: UIViewController {
                     self.tableView.reloadData()
                 }
             case .failure(let error):
-                self.presentAlertOnMainThread(title: "Something went wront", message: error.rawValue, buttonTitle: "Ok")
+                self.presentAlertOnMainThread(title: .somethingWentWrong, message: error.rawValue, buttonTitle: .ok, delegate: self)
             }
         }
     }
@@ -138,8 +141,18 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
         tableView.deselectRow(at: indexPath, animated: true)
         
         let repository = repositories[indexPath.row].name
-        let repositoryDetailsViewController = RepositoryDetailsViewController(username: username, repository: repository)
+        let repositoryDetailsViewController = RepositoryDetailsViewController(user: user, repository: repository)
         navigationController?.pushViewController(repositoryDetailsViewController, animated: true)
+    }
+    
+}
+
+// MARK: - Alert Delegate
+
+extension RepositoriesViewController: AlertDelegate {
+    
+    func dismiss() {
+        navigationController?.popViewController(animated: true)
     }
     
 }

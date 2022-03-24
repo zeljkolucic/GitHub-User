@@ -42,6 +42,9 @@
 		E4FF5BFD27EBC5FC0073C9CC /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BFC27EBC5FC0073C9CC /* Author.swift */; };
 		E4FF5BFF27EBC65B0073C9CC /* CommitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5BFE27EBC65B0073C9CC /* CommitDetails.swift */; };
 		E4FF5C0227EBCA460073C9CC /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5C0127EBCA460073C9CC /* RepositoryTableViewCell.swift */; };
+		E4FF5C0427EBDFD30073C9CC /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5C0327EBDFD30073C9CC /* CommitTableViewCell.swift */; };
+		E4FF5C0627EBE88E0073C9CC /* Calendar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5C0527EBE88E0073C9CC /* Calendar+Extension.swift */; };
+		E4FF5C0827EBEE9D0073C9CC /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF5C0727EBEE9D0073C9CC /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +85,9 @@
 		E4FF5BFC27EBC5FC0073C9CC /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		E4FF5BFE27EBC65B0073C9CC /* CommitDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitDetails.swift; sourceTree = "<group>"; };
 		E4FF5C0127EBCA460073C9CC /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		E4FF5C0327EBDFD30073C9CC /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
+		E4FF5C0527EBE88E0073C9CC /* Calendar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Extension.swift"; sourceTree = "<group>"; };
+		E4FF5C0727EBEE9D0073C9CC /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,8 @@
 				E4FF5BBE27EBA4370073C9CC /* UIImage+Extension.swift */,
 				E4FF5BDB27EBB1830073C9CC /* Date+Extension.swift */,
 				E4FF5BDD27EBB1AD0073C9CC /* UIViewController+Extension.swift */,
+				E4FF5C0527EBE88E0073C9CC /* Calendar+Extension.swift */,
+				E4FF5C0727EBEE9D0073C9CC /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				E4FF5C0127EBCA460073C9CC /* RepositoryTableViewCell.swift */,
+				E4FF5C0327EBDFD30073C9CC /* CommitTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FF5C0427EBDFD30073C9CC /* CommitTableViewCell.swift in Sources */,
 				E4FF5BFB27EBC4A20073C9CC /* Commit.swift in Sources */,
 				E4FF5BE527EBB1EA0073C9CC /* UserInfoHeaderViewController.swift in Sources */,
 				E4FF5BC427EBA75F0073C9CC /* Button.swift in Sources */,
@@ -357,6 +367,7 @@
 				E4FF5BDE27EBB1AD0073C9CC /* UIViewController+Extension.swift in Sources */,
 				E4FF5BEE27EBB4630073C9CC /* SecondaryTitleLabel.swift in Sources */,
 				E4FF5BD427EBAE620073C9CC /* NetworkManager.swift in Sources */,
+				E4FF5C0627EBE88E0073C9CC /* Calendar+Extension.swift in Sources */,
 				E4FF5BDC27EBB1830073C9CC /* Date+Extension.swift in Sources */,
 				E4FF5BE427EBB1EA0073C9CC /* RepoItemInfoViewController.swift in Sources */,
 				E4FF5BA127EBA2750073C9CC /* AppDelegate.swift in Sources */,
@@ -370,6 +381,7 @@
 				E4FF5BEC27EBB3A90073C9CC /* AvatarImageView.swift in Sources */,
 				E4FF5BF727EBC0890073C9CC /* RepositoryDetailsViewController.swift in Sources */,
 				E4FF5BE727EBB2170073C9CC /* ItemInfoViewController.swift in Sources */,
+				E4FF5C0827EBEE9D0073C9CC /* String+Extension.swift in Sources */,
 				E4FF5BBF27EBA4370073C9CC /* UIImage+Extension.swift in Sources */,
 				E4FF5BD827EBB0B80073C9CC /* BodyLabel.swift in Sources */,
 				E4FF5BA327EBA2750073C9CC /* SceneDelegate.swift in Sources */,

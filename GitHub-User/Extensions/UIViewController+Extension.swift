@@ -9,10 +9,11 @@ import UIKit
 
 extension UIViewController {
     
-    func presentAlertOnMainThread(title: String, message: String, buttonTitle: String) {
+    func presentAlertOnMainThread(title: String, message: String, buttonTitle: String, delegate: AlertDelegate? = nil) {
         // Everything regarding UI has to be done on main thread, better to do it here than every time when calling this function
         DispatchQueue.main.async {
             let alertViewController = AlertViewController(alertTitle: title, message: message, buttonTitle: buttonTitle)
+            alertViewController.delegate = delegate
             alertViewController.modalPresentationStyle = .overFullScreen
             alertViewController.modalTransitionStyle = .crossDissolve
             self.present(alertViewController, animated: true)

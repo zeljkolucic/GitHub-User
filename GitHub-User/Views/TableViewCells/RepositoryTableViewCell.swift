@@ -81,12 +81,10 @@ class RepositoryTableViewCell: UITableViewCell {
     }
     
     private func setConstraints() {
-        let padding: CGFloat = 10
-        
-        containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding).isActive = true
+        containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         
         titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AlertDelegate: AnyObject {
+    func dismiss()
+}
+
 class AlertViewController: UIViewController {
     
     let containerView: AlertContainerView = {
@@ -32,6 +36,8 @@ class AlertViewController: UIViewController {
     private var alertTitle: String?
     private var message: String?
     private var buttonTitle: String?
+    
+    weak var delegate: AlertDelegate?
     
     // MARK: - Initialization
     
@@ -81,6 +87,7 @@ class AlertViewController: UIViewController {
     }
     
     @objc private func dismissViewController() {
+        delegate?.dismiss()
         dismiss(animated: true)
     }
     

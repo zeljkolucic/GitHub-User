@@ -19,12 +19,12 @@ class SearchViewController: UIViewController {
     
     private let usernameTextField: TextField = {
         let textField = TextField()
-        textField.placeholder = "Enter a username"
+        textField.placeholder = .enterUsernamePlaceholder
         return textField
     }()
     
     private let searchButton: Button = {
-        let button = Button(backgroundColor: .systemGreen, title: "Search")
+        let button = Button(backgroundColor: .systemGreen, title: .search)
         return button
     }()
     
@@ -95,16 +95,17 @@ class SearchViewController: UIViewController {
         searchButton.addTarget(self, action: #selector(didTapSearchButton), for: .touchUpInside)
     }
     
-    // MARK: - Actions
+    // MARK: - Actions 
     
     @objc private func didTapSearchButton() {
         guard isUsernameEntered else {
-            presentAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for.", buttonTitle: "Ok")
+            presentAlertOnMainThread(title: .emptyUsername, message: .enterUsername, buttonTitle: .ok)
             return
         }
         
         usernameTextField.resignFirstResponder()
         
+        // It is safe to force unwrap text field's text because of the isUsernameEntered check above
         let userDetailsViewController = UserDetailsViewController(username: usernameTextField.text!)
         navigationController?.pushViewController(userDetailsViewController, animated: true)
     }
